@@ -4,6 +4,11 @@
 .products-col { flex: 1; }
 .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .no-results { color: #666; text-align: center; padding: 24px; font-style: italic; }
+.loading-message { background: #f0f4f8; border: 1px solid #d0dce6; padding: 16px; border-radius: 4px; text-align: center; color: #555; }
+.error-message { background: #fff5f5; border: 1px solid #fc8181; border-radius: 4px; padding: 16px; margin-bottom: 16px; color: #c53030; }
+.error-message p { margin: 0 0 12px 0; }
+.error-message button { background: #c53030; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-size: 0.9rem; }
+.error-message button:hover { background: #9b2c2c; }
 
 .product-card { border: 1px solid #e6e6e6; padding: 12px; background: #fff; }
 .product-image { background: #fafafa; height: 140px; display:flex; align-items:center; justify-content:center; }

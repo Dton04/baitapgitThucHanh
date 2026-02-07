@@ -1,30 +1,50 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useEffect } from 'react'
 import SearchFilter from '../components/SearchFilter'
 import ProductCard from '../components/ProductCard'
+import { fetchProducts } from '../services/api'
 import '../styles/product.css'
-
-const MOCK_PRODUCTS = [
-  { id: 1, title: 'Classic Shirt', price: 29.99, category: 'Clothing' },
-  { id: 2, title: 'Leather Belt', price: 19.00, category: 'Accessories' },
-  { id: 3, title: 'Sneakers', price: 69.50, category: 'Clothing' },
-  { id: 4, title: 'Sunglasses', price: 49.00, category: 'Accessories' },
-  { id: 5, title: 'Cotton Hoodie', price: 39.99, category: 'Clothing' },
-  { id: 6, title: 'Watch', price: 89.99, category: 'Accessories' },
-]
 
 export default function ProductList() {
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('')
   const [selectedPriceRange, setSelectedPriceRange] = useState('')
+  const [products, setProducts] = useState([])
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
+
+  // Fetch products from API when filters change
+  useEffect(() => {
+    const loadProducts = async () => {
+      setLoading(true)
+      setError(null)
+      
+      const { data, error: apiError } = await fetchProducts({
+        search: searchQuery,
+        category: selectedCategory,
+        priceRange: selectedPriceRange,
+      })
+
+      if (apiError) {
+        setError(apiError)
+        setProducts([])
+      } else {
+        setProducts(data || [])
+      }
+      
+      setLoading(false)
+    }
+
+    loadProducts()
+  }, [searchQuery, selectedCategory, selectedPriceRange])
 
   const filteredProducts = useMemo(() => {
-    return MOCK_PRODUCTS.filter(product => {
+    return products.filter(product => {
       const matchesSearch = product.title.toLowerCase().includes(searchQuery.toLowerCase())
       const matchesCategory = !selectedCategory || product.category === selectedCategory
       const matchesPrice = !selectedPriceRange || getPriceMatch(product.price, selectedPriceRange)
       return matchesSearch && matchesCategory && matchesPrice
     })
-  }, [searchQuery, selectedCategory, selectedPriceRange])
+  }, [products, searchQuery, selectedCategory, selectedPriceRange])
 
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value)
@@ -48,7 +68,9 @@ export default function ProductList() {
     <div className="product-list-page container">
       <header className="products-header">
         <h2 id="products-heading">Products</h2>
-        <p className="subtitle">Showing {filteredProducts.length} product{filteredProducts.length !== 1 ? 's' : ''}</p>
+        <p className="subtitle">
+          {loading ? 'Loading...' : `Showing ${filteredProducts.length} product${filteredProducts.length !== 1 ? 's' : ''}`}
+        </p>
       </header>
 
       <div className="products-grid-layout">
@@ -65,19 +87,34 @@ export default function ProductList() {
         </aside>
 
         <section className="products-col" aria-label="Product results">
-          <div className="products-grid">
-            {filteredProducts.length > 0 ? (
-              filteredProducts.map(product => (
-                <ProductCard
-                  key={product.id}
-                  title={product.title}
-                  price={`$${product.price.toFixed(2)}`}
-                />
-              ))
-            ) : (
-              <p className="no-results">No products found. Try adjusting your filters.</p>
-            )}
-          </div>
+          {error && (
+            <div className="error-message">
+              <p>Error: {error}</p>
+              <button onClick={() => window.location.reload()}>Retry</button>
+            </div>
+          )}
+
+          {loading && (
+            <div className="loading-message">
+              <p>Loading products...</p>
+            </div>
+          )}
+
+          {!loading && !error && (
+            <div className="products-grid">
+              {filteredProducts.length > 0 ? (
+                filteredProducts.map(product => (
+                  <ProductCard
+                    key={product.id}
+                    title={product.title}
+                    price={`$${product.price.toFixed(2)}`}
+                  />
+                ))
+              ) : (
+                <p className="no-results">No products found. Try adjusting your filters.</p>
+              )}
+            </div>
+          )}
         </section>
       </div>
     </div>
