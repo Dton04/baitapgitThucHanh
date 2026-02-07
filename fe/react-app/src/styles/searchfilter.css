@@ -1,0 +1,7 @@
+.search-filter { border: 1px solid #eee; padding: 12px; background: #fff; }
+.search-box label { display: block; font-size: 0.9rem; margin-bottom: 6px; }
+.search-box input { width: 100%; padding: 8px; border: 1px solid #ddd; }
+.filters { margin-top: 12px; }
+.filter-group { margin-bottom: 10px; }
+.filter-group ul { list-style: none; margin: 6px 0 0 0; padding: 0; }
+.filter-group a { text-decoration: none; color: #333; }

@@ -1,0 +1,11 @@
+.products-header { margin-bottom: 12px; }
+.products-grid-layout { display: flex; gap: 24px; }
+.aside-col { width: 260px; }
+.products-col { flex: 1; }
+.products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+.product-card { border: 1px solid #e6e6e6; padding: 12px; background: #fff; }
+.product-image { background: #fafafa; height: 140px; display:flex; align-items:center; justify-content:center; }
+.image-placeholder { color: #999; }
+.product-title { margin: 8px 0 4px 0; font-size: 1rem; }
+.product-price { color: #1a7; font-weight: 700; }

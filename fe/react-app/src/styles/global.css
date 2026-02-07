@@ -1,0 +1,15 @@
+/* Global layout styles */
+:root {
+  --container-width: 1000px;
+  --muted: #666;
+}
+
+* { box-sizing: border-box; }
+body { font-family: Arial, Helvetica, sans-serif; margin: 0; color: #222; }
+.container { max-width: var(--container-width); margin: 0 auto; padding: 16px; }
+
+main { padding: 24px 0; }
+
+.header-inner, .footer-inner { display: flex; align-items: center; justify-content: space-between; }
+
+.lead { color: var(--muted); }
