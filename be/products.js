@@ -35,4 +35,3 @@ function searchProducts(keyword) {
 function filterProductsByCategory(category) {
     return products.filter(p => p.category === category);
 }
-// điền để được commit
