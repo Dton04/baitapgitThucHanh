@@ -1,0 +1,133 @@
+.search-filter { 
+  border: 1px solid #e6e6e6;
+  padding: 16px;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.search-box label { 
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #111;
+}
+
+.search-box input { 
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.search-box input:hover {
+  border-color: #0066cc;
+}
+
+.search-box input:focus {
+  border-color: #0066cc;
+  background: #f9fbfd;
+}
+
+.filters { margin-top: 16px; }
+
+.filters-header { 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.filters-header h4 { 
+  margin: 0;
+  font-size: 1rem;
+  color: #111;
+}
+
+.clear-btn { 
+  background: none;
+  border: none;
+  color: #0066cc;
+  cursor: pointer;
+  font-size: 0.8rem;
+  padding: 4px 8px;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: var(--transition);
+}
+
+.clear-btn:hover {
+  color: #fff;
+  background: #0066cc;
+}
+
+.filter-group { 
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.filter-group:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.filter-group label { 
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: block;
+  margin-bottom: 8px;
+  color: #111;
+}
+
+.filter-group ul { 
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.filter-group li {
+  margin-bottom: 6px;
+}
+
+.filter-link { 
+  background: none;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  text-align: left;
+  padding: 6px 8px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  transition: var(--transition);
+  width: 100%;
+  display: block;
+}
+
+.filter-link:hover {
+  color: #0066cc;
+  background: #f0f4f8;
+}
+
+.filter-link.active { 
+  color: #fff;
+  background: #0066cc;
+  font-weight: 600;
+}
+
+/* Mobile: < 768px */
+@media (max-width: 767px) {
+  .search-filter { padding: 12px; }
+  .search-box input { padding: 10px; font-size: 16px; }
+  .filters-header { margin-bottom: 10px; }
+  .filters-header h4 { font-size: 0.95rem; }
+  .filter-group { margin-bottom: 12px; padding-bottom: 10px; }
+  .filter-group label { font-size: 0.85rem; margin-bottom: 6px; }
+  .filter-link { padding: 8px 10px; font-size: 0.9rem; }
+}
