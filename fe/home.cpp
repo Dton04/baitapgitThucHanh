@@ -15,3 +15,7 @@ public class HelloWorld {
         System.out.println("Loli iz da best");
     }
 }
+
+fn main() {
+    println!("t ghet tre em");
+}
