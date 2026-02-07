@@ -1,7 +1,14 @@
 .search-filter { border: 1px solid #eee; padding: 12px; background: #fff; }
 .search-box label { display: block; font-size: 0.9rem; margin-bottom: 6px; }
-.search-box input { width: 100%; padding: 8px; border: 1px solid #ddd; }
+.search-box input { width: 100%; padding: 8px; border: 1px solid #ddd; font-size: 1rem; }
 .filters { margin-top: 12px; }
+.filters-header { display: flex; align-items: center; justify-content: space-between; }
+.filters-header h4 { margin: 0; }
+.clear-btn { background: none; border: none; color: #0066cc; cursor: pointer; font-size: 0.85rem; padding: 0; text-decoration: underline; }
+.clear-btn:hover { color: #0052a3; }
 .filter-group { margin-bottom: 10px; }
+.filter-group label { font-weight: 600; font-size: 0.9rem; display: block; margin-bottom: 6px; }
 .filter-group ul { list-style: none; margin: 6px 0 0 0; padding: 0; }
-.filter-group a { text-decoration: none; color: #333; }
+.filter-link { background: none; border: none; color: #333; cursor: pointer; text-align: left; padding: 4px 0; text-decoration: none; font-size: 0.9rem; }
+.filter-link:hover { color: #0066cc; }
+.filter-link.active { color: #0066cc; font-weight: 600; }

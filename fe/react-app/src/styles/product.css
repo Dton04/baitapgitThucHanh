@@ -3,6 +3,7 @@
 .aside-col { width: 260px; }
 .products-col { flex: 1; }
 .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.no-results { color: #666; text-align: center; padding: 24px; font-style: italic; }
 
 .product-card { border: 1px solid #e6e6e6; padding: 12px; background: #fff; }
 .product-image { background: #fafafa; height: 140px; display:flex; align-items:center; justify-content:center; }
