@@ -1,1 +1,3 @@
 Trịnh Trương An - 2280600035
+Lần này vào để sửa file phục vụ cho việc commit2 
+Em đang làm bài tập Git
