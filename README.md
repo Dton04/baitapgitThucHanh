@@ -1,7 +1,7 @@
 # 📦 Bài tập thực hành GIT
 > **Môn học:** Công cụ và môi trường phát triển phần mềm
 
-## 👥 Danh sách thành viên (Nhóm 7)
+## 👥 Danh sách thành viên (Nhóm 14)
 * **Nguyễn Tấn Đạt** - *Team Lead & Backend Core*
 * **Ngô Tấn Hưng** - *Developer*
 * **Nguyễn Minh Quang** - *Developer*
